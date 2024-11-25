@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from 'react';
+
 import './App.css';
 import Header from './Header';
 import Main from './Main';
@@ -9,6 +10,10 @@ import Question from './Question';
 import NextButton from './NextButton';
 import Progress from './Progress';
 import FinishScreen from './FinishScreen';
+import Footer from './Footer';
+import Timer from './Timer';
+
+const SECS_PER_QUESTION = 30;
 
 const initialState = {
   questions: [],
@@ -17,6 +22,7 @@ const initialState = {
   answer: null,
   points: 0,
   highscore: 0,
+  secondRemaining: null,
 };
 function reducer(state, action) {
   console.log(state, action);
@@ -54,12 +60,23 @@ function reducer(state, action) {
       };
 
     case 'start':
-      return { ...state, status: 'active' };
+      return {
+        ...state,
+        status: 'active',
+        secondRemaining: state.questions.length * SECS_PER_QUESTION,
+      };
     case 'restart':
       return {
         ...initialState,
         questions: state.questions,
         status: 'ready',
+      };
+
+    case 'timer':
+      return {
+        ...state,
+        secondRemaining: state.secondRemaining - 1,
+        status: state.secondRemaining === 0 ? 'hasfinished' : state.status,
       };
 
     default:
@@ -68,8 +85,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status, index, answer, points, highscore }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { questions, status, index, answer, points, highscore, secondRemaining },
+    dispatch,
+  ] = useReducer(reducer, initialState);
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
     (prev, current) => prev + current.points,
@@ -107,13 +126,16 @@ function App() {
               dispatch={dispatch}
               answer={answer}
             />
-            <NextButton
-              dispatch={dispatch}
-              answer={answer}
-              numQuestion={numQuestions}
-              index={index}
-              status={status}
-            />
+            <Footer>
+              <Timer dispatch={dispatch} secondRemaining={secondRemaining} />
+              <NextButton
+                dispatch={dispatch}
+                answer={answer}
+                numQuestion={numQuestions}
+                index={index}
+                status={status}
+              />
+            </Footer>
           </>
         )}
 
