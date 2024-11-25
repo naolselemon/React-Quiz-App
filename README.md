@@ -19,10 +19,16 @@ To launch the application, use the following commands:
    npm start
    ```
 
-### Screenshot of the start Screen of the application
+### Screenshot of the start screen of the application
 
 ![Screenshot of the start screen of the application](screenshots/startScreen.png)
+
+### Screenshot of the question screen of the application
+
 ![Screenshot of the question screen of the application](screenshots/questionScreen.png)
+
+### Screenshot of the score screen of the application
+
 ![Screenshot of the score screen of the application](screenshots/scoreScreen.png)
 
 ### Notes
