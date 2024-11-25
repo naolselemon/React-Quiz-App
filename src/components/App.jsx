@@ -13,7 +13,7 @@ import FinishScreen from './FinishScreen';
 import Footer from './Footer';
 import Timer from './Timer';
 
-const SECS_PER_QUESTION = 30;
+const SECS_PER_QUESTION = 0;
 
 const initialState = {
   questions: [],

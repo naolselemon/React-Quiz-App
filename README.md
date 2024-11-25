@@ -21,7 +21,9 @@ To launch the application, use the following commands:
 
 ### Screenshot of the start Screen of the application
 
-![Screenshot of the start Screen of the application](https://github.com/naolselemon/React-Quiz-App/public/startScreen.png)
+![Screenshot of the start screen of the application](screenshots/startScreen.png)
+![Screenshot of the question screen of the application](screenshots/questionScreen.png)
+![Screenshot of the score screen of the application](screenshots/scoreScreen.png)
 
 ### Notes
 
