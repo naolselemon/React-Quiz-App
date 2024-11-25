@@ -19,6 +19,10 @@ To launch the application, use the following commands:
    npm start
    ```
 
+### Screenshot of the start Screen of the application
+
+![Screenshot of the start Screen of the application](https://github.com/naolselemon/React-Quiz-App/public/startScreen.png)
+
 ### Notes
 
 - **Important:** It is essential to start the backend server (`npm run server`) before running the application (`npm start`) to ensure the questions are loaded properly.
